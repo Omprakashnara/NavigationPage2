@@ -9,17 +9,21 @@
 <body>
     <header>
         <button class="header-button">Back</button>
-        <div class="toggle-switch">
-            <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+        <div class="dark-mode-toggle">
+            <button type="button" onclick="enableLightMode()">☀</button>
+            <label class="switch">
+                <input type="checkbox" onchange="toggleDarkMode(this.checked)">
+                <span class="slider round"></span>
+            </label>
+            <button type="button" onclick="enableDarkMode()">☾</button>
         </div>
-        <button class="header-button">Light Mode</button>
     </header>
     <img src="map-image.jpg" id="static-map" alt="Static Map">
     <div id="controls">
         <input type="text" id="origin" placeholder="Origin">
         <input type="text" id="destination" placeholder="Destination">
-        <button onclick="calculateRoute()">Calculate Route</button>
-        <button onclick="checkWeather()">Weather</button>
+        <button class="button violet" onclick="calculateRoute()">Calculate Route</button>
+        <button class="button green" onclick="checkWeather()">Weather</button>
         <div id="results">
             <p>Distance: <span id="distance">-</span></p>
             <p>Duration: <span id="duration">-</span></p>
