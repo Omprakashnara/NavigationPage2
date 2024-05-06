@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100%;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -15,7 +16,7 @@ header {
     align-items: center;
 }
 
-.header-button {
+.header-button, .dark-mode-toggle button {
     background-color: #006BDF;
     border: none;
     color: white;
@@ -24,13 +25,59 @@ header {
     border-radius: 4px;
 }
 
-.toggle-switch {
-    position: relative;
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
 }
 
-#map {
-    height: 65vh;
-    width: 80%;
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#static-map {
+    width: 100%;
+    height: auto;
 }
 
 #controls {
@@ -42,14 +89,27 @@ header {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
 }
 
 input[type="text"], button {
     padding: 10px;
-    width: 300px; /* Same width for alignment */
-    margin-bottom: 5px;
+    margin-right: 5px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
+
+.button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.violet {
+    background-color: #8a2be2; /* Violet color for Calculate Route button */
+    color: white;
+}
+
+.green {
+    background-color: #32
