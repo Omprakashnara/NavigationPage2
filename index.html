@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Make sure your CSS file is correctly linked -->
+    <title>Combined Navigation and Dark Mode Components</title>
+    <style>
+        /* Additional styling for the Google Map container */
+        #map {
+            height: 400px; /* or any other height */
+            width: 100%; /* Responsive width */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <button type="button" onclick="alert('Enable light mode');">
+                ☀
+            </button>
+            <label class="switch">
+                <input type="checkbox" onchange="alert('Toggle dark mode');">
+                <span class="slider round"></span>
+            </label>
+            <button type="button" onclick="alert('Enable dark mode');">
+                ☾
+            </button>
+        </div>
+
+        <!-- Dark Mode Commands -->
+        <div>
+            <span>
+                Dark Mode is <code>disabled</code>. Turn it
+                <button onclick="alert('Toggle dark mode');">on</button>.
+            </span>
+            <label class="switch">
+                <input type="checkbox" onchange="alert('Toggle dark mode again');">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <!-- Map and Directions Content -->
+        <div id="map"></div> <!-- Google Map container -->
+
+        <div class="controls" style="padding: 16px; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <form>
+                <input type="text" placeholder="Origin" name="origin">
+                <input type="text" placeholder="Destination" name="destination">
+                <button type="button" onclick="alert('Calculate route function placeholder');">Calculate Route</button>
+                <button type="button" onclick="alert('Clear route function placeholder');">Clear Route</button>
+                <button type="button" onclick="alert('Back function placeholder');">Back</button>
+                <button type="button" onclick="alert('Weather function placeholder');">Weather</button>
+            </form>
+
+            <!-- Distance and Duration Display -->
+            <div>
+                <span>Distance: Placeholder for distance</span>
+                <span>Duration: Placeholder for duration</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        function initMap() {
+            var center = {lat: -34.397, lng: 150.644};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: center
+            });
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map
+            });
+        }
+        window.onload = initMap; // Initialize the map when the window loads
+    </script>
+</body>
+</html>
