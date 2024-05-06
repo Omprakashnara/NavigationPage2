@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map Interface Example</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="map">
-        <!-- Map Placeholder -->
-        <p>Map View</p>
-    </div>
+    <header>
+        <button class="header-button">Back</button>
+        <div class="toggle-switch">
+            <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+        </div>
+        <button class="header-button">Light Mode</button>
+    </header>
+    <div id="map"></div>
     <div id="controls">
         <input type="text" id="origin" placeholder="Origin">
         <input type="text" id="destination" placeholder="Destination">
         <button onclick="calculateRoute()">Calculate Route</button>
+        <button onclick="checkWeather()">Weather</button>
         <div id="results">
             <p>Distance: <span id="distance">-</span></p>
             <p>Duration: <span id="duration">-</span></p>
         </div>
     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async></script>
     <script src="script.js"></script>
 </body>
 </html>
