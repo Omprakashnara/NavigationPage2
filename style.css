@@ -112,4 +112,6 @@ input[type="text"], button {
 }
 
 .green {
-    background-color: #32
+    background-color: #32cd32; /* Green color for Weather button */
+    color: white;
+}
