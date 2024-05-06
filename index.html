@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Interface Example</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Custom Map Interface</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -14,7 +14,7 @@
         </div>
         <button class="header-button">Light Mode</button>
     </header>
-    <div id="map"></div>
+    <img src="map-image.jpg" id="static-map" alt="Static Map">
     <div id="controls">
         <input type="text" id="origin" placeholder="Origin">
         <input type="text" id="destination" placeholder="Destination">
@@ -25,7 +25,6 @@
             <p>Duration: <span id="duration">-</span></p>
         </div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async></script>
     <script src="script.js"></script>
 </body>
 </html>
